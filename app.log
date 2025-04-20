@@ -336,3 +336,100 @@ with app.app_context(). See the documentation for more information.
 2025-04-20 19:14:00,642 - werkzeug - WARNING -  * Debugger is active!
 2025-04-20 19:14:00,645 - werkzeug - INFO -  * Debugger PIN: 796-205-188
 2025-04-20 19:14:16,346 - payment_processor - INFO - Stopping payment processor...
+2025-04-20 23:03:19,097 - email_service - INFO - Email processor started
+2025-04-20 23:03:19,097 - email_service - INFO - Email processor started in background thread
+2025-04-20 23:03:19,099 - payment_processor - INFO - Payment processor started
+2025-04-20 23:03:19,099 - payment_processor - INFO - Payment processor started in background thread
+2025-04-20 23:03:19,099 - payment_processor - ERROR - Error fetching pending transactions: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2025-04-20 23:03:19,099 - crypto_payment_app - INFO - Application initialized successfully
+2025-04-20 23:03:19,099 - payment_processor - INFO - No pending transactions to process
+2025-04-20 23:03:19,126 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.106:8080
+2025-04-20 23:03:19,126 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-20 23:03:19,128 - werkzeug - INFO -  * Restarting with stat
+2025-04-20 23:03:19,712 - email_service - INFO - Email processor started
+2025-04-20 23:03:19,712 - email_service - INFO - Email processor started in background thread
+2025-04-20 23:03:19,714 - payment_processor - INFO - Payment processor started
+2025-04-20 23:03:19,714 - payment_processor - INFO - Payment processor started in background thread
+2025-04-20 23:03:19,714 - payment_processor - ERROR - Error fetching pending transactions: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2025-04-20 23:03:19,714 - crypto_payment_app - INFO - Application initialized successfully
+2025-04-20 23:03:19,714 - payment_processor - INFO - No pending transactions to process
+2025-04-20 23:03:19,730 - werkzeug - WARNING -  * Debugger is active!
+2025-04-20 23:03:19,733 - werkzeug - INFO -  * Debugger PIN: 131-893-445
+2025-04-20 23:03:37,405 - email_service - INFO - Email processor started
+2025-04-20 23:03:37,406 - email_service - INFO - Email processor started in background thread
+2025-04-20 23:03:37,420 - email_service - INFO - Email processor started
+2025-04-20 23:03:37,420 - email_service - INFO - Email processor started in background thread
+2025-04-20 23:03:37,421 - payment_processor - INFO - Payment processor started
+2025-04-20 23:03:37,421 - payment_processor - INFO - Payment processor started in background thread
+2025-04-20 23:03:37,421 - payment_processor - ERROR - Error fetching pending transactions: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2025-04-20 23:03:37,421 - crypto_payment_app - INFO - Application initialized successfully
+2025-04-20 23:03:37,421 - payment_processor - INFO - No pending transactions to process
+2025-04-20 23:03:37,425 - payment_processor - INFO - Payment processor started
+2025-04-20 23:03:37,425 - payment_processor - INFO - Payment processor started in background thread
+2025-04-20 23:03:37,425 - crypto_payment_app - INFO - Application initialized successfully
+2025-04-20 23:03:37,425 - payment_processor - ERROR - Error fetching pending transactions: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2025-04-20 23:03:37,428 - payment_processor - INFO - No pending transactions to process
+2025-04-20 23:03:37,445 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-20 23:03:37,445 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-20 23:03:37,446 - werkzeug - INFO -  * Restarting with stat
+2025-04-20 23:03:37,995 - email_service - INFO - Email processor started
+2025-04-20 23:03:37,995 - email_service - INFO - Email processor started in background thread
+2025-04-20 23:03:38,010 - email_service - INFO - Email processor started
+2025-04-20 23:03:38,010 - email_service - INFO - Email processor started in background thread
+2025-04-20 23:03:38,011 - payment_processor - INFO - Payment processor started
+2025-04-20 23:03:38,011 - payment_processor - INFO - Payment processor started in background thread
+2025-04-20 23:03:38,011 - payment_processor - ERROR - Error fetching pending transactions: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2025-04-20 23:03:38,011 - crypto_payment_app - INFO - Application initialized successfully
+2025-04-20 23:03:38,011 - payment_processor - INFO - No pending transactions to process
+2025-04-20 23:03:38,015 - payment_processor - INFO - Payment processor started
+2025-04-20 23:03:38,015 - payment_processor - INFO - Payment processor started in background thread
+2025-04-20 23:03:38,015 - payment_processor - ERROR - Error fetching pending transactions: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2025-04-20 23:03:38,015 - crypto_payment_app - INFO - Application initialized successfully
+2025-04-20 23:03:38,015 - payment_processor - INFO - No pending transactions to process
+2025-04-20 23:03:38,031 - werkzeug - WARNING -  * Debugger is active!
+2025-04-20 23:03:38,033 - werkzeug - INFO -  * Debugger PIN: 131-893-445
+2025-04-20 23:03:52,936 - payment_processor - INFO - Stopping payment processor...
+2025-04-20 23:03:54,941 - payment_processor - INFO - Stopping payment processor...
+2025-04-20 23:03:56,944 - payment_processor - INFO - Stopping payment processor...
+2025-04-20 23:03:57,948 - payment_processor - WARNING - Payment processor thread did not stop gracefully
+2025-04-20 23:03:57,948 - email_service - INFO - Stopping email processor...
+2025-04-20 23:03:58,092 - email_service - INFO - Email processor stopped
+2025-04-20 23:03:58,092 - email_service - INFO - Email processor stopped successfully
+2025-04-20 23:03:58,092 - werkzeug - INFO - 127.0.0.1 - - [20/Apr/2025 23:03:58] "HEAD / HTTP/1.1" 200 -
+2025-04-20 23:03:58,950 - payment_processor - INFO - Stopping payment processor...
+2025-04-20 23:03:59,955 - payment_processor - WARNING - Payment processor thread did not stop gracefully
+2025-04-20 23:03:59,955 - email_service - WARNING - Email processor is not running
+2025-04-20 23:03:59,955 - werkzeug - INFO - 127.0.0.1 - - [20/Apr/2025 23:03:59] "HEAD / HTTP/1.1" 200 -
+2025-04-20 23:04:00,957 - payment_processor - INFO - Stopping payment processor...
+2025-04-20 23:04:01,948 - payment_processor - WARNING - Payment processor thread did not stop gracefully
+2025-04-20 23:04:01,948 - email_service - WARNING - Email processor is not running
+2025-04-20 23:04:01,948 - werkzeug - INFO - 127.0.0.1 - - [20/Apr/2025 23:04:01] "HEAD / HTTP/1.1" 200 -
+2025-04-20 23:04:02,965 - payment_processor - INFO - Stopping payment processor...
