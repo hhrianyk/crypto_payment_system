@@ -10,11 +10,15 @@ from app import app
 
 if __name__ == '__main__':
     # Get host and port from environment variables or use defaults
-    host = os.environ.get('HOST', '0.0.0.0')
-    port = int(os.environ.get('PORT', 8080))
-    debug = os.environ.get('FLASK_ENV', 'development') == 'development'
+    host = '0.0.0.0'  # Changed to listen on all interfaces
+    port = 5000
+    debug = True  # Force debug mode
     
     print(f"Server starting on http://{host}:{port}")
-    print(f"Debug mode: {'enabled' if debug else 'disabled'}")
+    print(f"Debug mode: enabled")
     
-    app.run(debug=debug, host=host, port=port)
+    try:
+        app.run(debug=debug, host=host, port=port)
+    except Exception as e:
+        print(f"Error starting server: {str(e)}")
+        
