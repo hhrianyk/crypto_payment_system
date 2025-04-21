@@ -8,6 +8,7 @@ from urllib.parse import urlencode
 from dotenv import load_dotenv
 import logging
 import threading
+from flask_wtf.csrf import CSRFProtect, generate_csrf, validate_csrf
 
 # Configure logging
 logging.basicConfig(
@@ -28,6 +29,8 @@ from config import config
 
 # Create Flask app
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your-secret-key-here')
+app.config['WTF_CSRF_ENABLED'] = True
 
 # Configure the app based on environment
 env = os.environ.get('FLASK_ENV', 'development')
@@ -173,62 +176,75 @@ def generate_payment_link(transaction_id, amount, network, description=None):
     return payment_link
 
 def generate_trust_wallet_uri(network, address, amount, description=None):
-    """Generate Trust Wallet URI for payment with enhanced parameters"""
-    # Map our network names to Trust Wallet asset codes
+    """Generate Trust Wallet URI for direct payment with enhanced parameters"""
+    # Map our network names to Trust Wallet asset codes and contract addresses
     asset_map = {
-        'bnb': 'bnb',
-        'eth': 'eth',
-        'sol': 'sol',
-        'btc': 'btc',
-        'trx': 'trx',
-        'bnb_usdt': 'bnb_usdt',
-        'eth_usdt': 'eth_usdt',
-        'trx_usdt': 'trx_usdt'
+        'bnb': {
+            'coin': '714',
+            'token': 'BNB',
+            'contract': None
+        },
+        'eth': {
+            'coin': '60',
+            'token': 'ETH',
+            'contract': None
+        },
+        'sol': {
+            'coin': '501',
+            'token': 'SOL',
+            'contract': None
+        },
+        'btc': {
+            'coin': '0',
+            'token': 'BTC',
+            'contract': None
+        },
+        'trx': {
+            'coin': '195',
+            'token': 'TRX',
+            'contract': None
+        },
+        'bnb_usdt': {
+            'coin': '714',
+            'token': 'USDT',
+            'contract': '0x55d398326f99059fF775485246999027B3197955'
+        },
+        'eth_usdt': {
+            'coin': '60',
+            'token': 'USDT',
+            'contract': '0xdAC17F958D2ee523a2206206994597C13D831ec7'
+        },
+        'trx_usdt': {
+            'coin': '195',
+            'token': 'USDT',
+            'contract': 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'
+        }
     }
     
-    # Get the correct asset code
-    asset = asset_map.get(network)
-    if not asset:
+    # Validate network
+    if network not in asset_map:
         raise ValueError(f"Unsupported network: {network}")
     
-    # Format amount to avoid scientific notation and add some randomness
-    formatted_amount = "{:.8f}".format(float(amount)).rstrip('0').rstrip('.')
+    # Get asset info
+    asset_info = asset_map[network]
     
-    # Generate a random transaction ID for tracking
+    # Format amount to avoid scientific notation and validate
+    try:
+        formatted_amount = "{:.8f}".format(float(amount)).rstrip('0').rstrip('.')
+        if float(formatted_amount) <= 0:
+            raise ValueError("Amount must be greater than 0")
+    except ValueError as e:
+        raise ValueError(f"Invalid amount format: {str(e)}")
+    
+    # Generate transaction ID for tracking
     tx_id = secrets.token_hex(8)
     
-    # Build the URL with enhanced parameters
-    base_uri = "https://link.trustwallet.com/send"
-    params = {
-        'asset': asset,
-        'address': address,
-        'amount': formatted_amount,
-        'tx_id': tx_id,  # Добавляем ID транзакции
-        'timestamp': str(int(datetime.now().timestamp())),  # Добавляем timestamp
-        'version': '1.0',  # Версия протокола
-        'network': network,  # Исходная сеть
-        'currency': 'USD' if 'usdt' in network else asset.upper()  # Валюта для отображения
-    }
-    
-    if description:
-        params['memo'] = description
-    
-    # Добавляем подпись для верификации
-    signature = secrets.token_hex(16)
-    params['signature'] = signature
-    
-    # Кодируем параметры
-    encoded_params = urlencode(params)
-    
-    # Формируем финальную ссылку
-    final_url = f"{base_uri}?{encoded_params}"
-    
-    # Сохраняем информацию о транзакции
+    # Create transaction record
     transaction = Transaction(
         id=tx_id,
         amount=float(amount),
         network=network,
-        client_email='',  # No email required for direct payment links
+        client_email='',
         status='pending',
         description=description,
         tx_hash=None
@@ -236,7 +252,40 @@ def generate_trust_wallet_uri(network, address, amount, description=None):
     db.session.add(transaction)
     db.session.commit()
     
-    return final_url
+    # Build base parameters
+    params = {
+        'coin': asset_info['coin'],
+        'address': address,
+        'amount': formatted_amount,
+        'action': 'transfer',
+        'token': asset_info['token']
+    }
+    
+    # Add contract address for tokens
+    if asset_info['contract']:
+        params['contract'] = asset_info['contract']
+    
+    # Add description as memo if provided
+    if description:
+        params['memo'] = description
+    
+    # Add additional parameters for better tracking
+    params.update({
+        'tx_id': tx_id,
+        'timestamp': str(int(datetime.utcnow().timestamp())),
+        'version': '1.0'
+    })
+    
+    # Generate both direct and web URLs
+    direct_url = f"trust://send?{urlencode(params)}"
+    web_url = f"https://link.trustwallet.com/send?{urlencode(params)}"
+    
+    # Return both URLs and transaction ID
+    return {
+        'direct_url': direct_url,
+        'web_url': web_url,
+        'transaction_id': tx_id
+    }
 
 def send_payment_link_email(to_email, payment_link, amount, network, description=None):
     """Send email with payment link to the client"""
@@ -304,52 +353,78 @@ def admin_settings():
 def send_payment_link():
     if request.method == 'POST':
         try:
-            amount = float(request.form.get('amount'))
+            # Validate CSRF token
+            csrf_token = request.form.get('csrf_token')
+            if not csrf_token:
+                return jsonify({
+                    'success': False,
+                    'error': 'CSRF token is missing'
+                }), 400
+
+            try:
+                validate_csrf(csrf_token)
+            except Exception as e:
+                return jsonify({
+                    'success': False,
+                    'error': 'Invalid CSRF token'
+                }), 400
+
+            # Get form data
+            amount = request.form.get('amount')
             network = request.form.get('network')
-            
+            description = request.form.get('description')
+
+            # Validate required fields
+            if not amount or not network:
+                return jsonify({
+                    'success': False,
+                    'error': 'Amount and network are required'
+                }), 400
+
+            # Convert amount to float
+            try:
+                amount = float(amount)
+                if amount <= 0:
+                    raise ValueError("Amount must be greater than 0")
+            except ValueError as e:
+                return jsonify({
+                    'success': False,
+                    'error': str(e)
+                }), 400
+
             # Get wallet address for the selected network
             wallet = WalletAddress.query.filter_by(network=network).first()
             if not wallet:
                 return jsonify({
                     'success': False,
                     'error': f'No wallet address configured for {network}'
-                })
-            
-            # Generate transaction ID
-            transaction_id = str(uuid.uuid4())
-            
-            # Create new transaction
-            transaction = Transaction(
-                id=transaction_id,
-                amount=amount,
-                network=network,
-                client_email='',  # No email required for direct payment links
-                status='pending'
-            )
-            db.session.add(transaction)
-            db.session.commit()
-            
-            # Generate payment link
-            payment_link = generate_trust_wallet_uri(
+                }), 400
+
+            # Generate payment links
+            result = generate_trust_wallet_uri(
                 network=network,
                 address=wallet.address,
-                amount=amount
+                amount=amount,
+                description=description
             )
-            
+
             return jsonify({
                 'success': True,
-                'message': 'Payment link generated successfully',
-                'payment_link': payment_link
+                'message': 'Payment links generated successfully',
+                'direct_url': result['direct_url'],
+                'web_url': result['web_url'],
+                'transaction_id': result['transaction_id']
             })
-            
+
         except Exception as e:
             logger.error(f"Error generating payment link: {str(e)}")
             return jsonify({
                 'success': False,
-                'error': 'Failed to generate payment link'
-            })
-    
-    return render_template('send_link.html')
+                'error': str(e)
+            }), 500
+
+    # GET request - show form
+    return render_template('send_link.html', csrf_token=generate_csrf())
 
 @app.route('/api/generate_link', methods=['POST'])
 def api_generate_link():
@@ -599,6 +674,19 @@ def api_verify_pending():
             'success': False,
             'message': 'Payment processor not initialized'
         }), 500
+
+@app.route('/payment_callback/<transaction_id>', methods=['GET'])
+def payment_callback(transaction_id):
+    """Handle payment callback from Trust Wallet"""
+    transaction = Transaction.query.get_or_404(transaction_id)
+    
+    # Update transaction status
+    transaction.status = 'completed'
+    transaction.tx_hash = request.args.get('tx_hash')
+    transaction.updated_at = datetime.utcnow()
+    db.session.commit()
+    
+    return jsonify({'status': 'success'})
 
 # Error handlers
 @app.errorhandler(404)
