@@ -107,47 +107,42 @@ from payment_processor import PaymentProcessor
 
 # Create tables and initialize data
 def initialize_app():
-    db.create_all()
-    
-    # Initialize default wallet addresses if they don't exist
-    default_wallets = {
-        'bitcoin': os.environ.get('WALLET_ADDRESS_BITCOIN', 'your_bitcoin_wallet_address'),
-        'ethereum': os.environ.get('WALLET_ADDRESS_ETHEREUM', 'your_ethereum_wallet_address'),
-        'bnb': os.environ.get('WALLET_ADDRESS_BNB', 'your_bnb_wallet_address'),
-        'tron': os.environ.get('WALLET_ADDRESS_TRON', 'your_tron_wallet_address'),
-        'solana': os.environ.get('WALLET_ADDRESS_SOLANA', 'your_solana_wallet_address')
-    }
-    
-    for network, address in default_wallets.items():
-        existing = WalletAddress.query.filter_by(network=network).first()
-        if not existing:
-            wallet = WalletAddress(network=network, address=address)
-            db.session.add(wallet)
-        else:
-            # Update existing wallet addresses with values from environment variables
-            existing.address = address
-    
-    db.session.commit()
-    
-    # Start the email service
-    email_service.start()
-    
-    # Start the payment processor
-    api_keys = {}
-    api_key_records = BlockchainAPIKey.query.all()
-    for key in api_key_records:
-        api_keys[key.network] = key.api_key
-    
-    global payment_processor
-    payment_processor = PaymentProcessor(
-        db=db,
-        api_keys=api_keys,
-        check_interval=60,  # Check every 60 seconds
-        simulation_mode=os.environ.get('SIMULATION_MODE', 'true').lower() == 'true'
-    )
-    payment_processor.start()
-    
-    logger.info("Application initialized successfully")
+    """Initialize the application with required data"""
+    with app.app_context():
+        # Create database tables
+        db.create_all()
+        
+        # Initialize wallet addresses if they don't exist
+        wallet_addresses = {
+            'bnb': os.environ.get('WALLET_ADDRESS_BNB'),
+            'eth': os.environ.get('WALLET_ADDRESS_ETHEREUM'),
+            'sol': os.environ.get('WALLET_ADDRESS_SOLANA'),
+            'btc': os.environ.get('WALLET_ADDRESS_BITCOIN'),
+            'trx': os.environ.get('WALLET_ADDRESS_TRON'),
+            'bnb_usdt': os.environ.get('WALLET_ADDRESS_BNB_USDT'),
+            'eth_usdt': os.environ.get('WALLET_ADDRESS_ETH_USDT'),
+            'trx_usdt': os.environ.get('WALLET_ADDRESS_TRX_USDT')
+        }
+        
+        for network, address in wallet_addresses.items():
+            if address:
+                wallet = WalletAddress.query.filter_by(network=network).first()
+                if not wallet:
+                    wallet = WalletAddress(network=network, address=address)
+                    db.session.add(wallet)
+                else:
+                    wallet.address = address
+        
+        db.session.commit()
+        
+        # Start email service
+        email_service.start()
+        
+        # Initialize blockchain verifier
+        global blockchain_verifier
+        blockchain_verifier = BlockchainVerifier()
+        
+        logger.info("Application initialized successfully")
 
 # Call initialize_app with the app context
 with app.app_context():
@@ -178,22 +173,16 @@ def generate_payment_link(transaction_id, amount, network, description=None):
     return payment_link
 
 def generate_trust_wallet_uri(network, address, amount, description=None):
-    """Generate a URI compatible with Trust Wallet for direct payment"""
-    # Map our network names to Trust Wallet protocol schemes
-    network_schemes = {
-        'bitcoin': 'bitcoin',
-        'ethereum': 'ethereum',
-        'bnb': 'bnb',
-        'tron': 'tron',
-        'solana': 'solana'
+    """Generate Trust Wallet URI for payment"""
+    base_uri = "https://link.trustwallet.com/send"
+    params = {
+        'asset': network,
+        'address': address,
+        'amount': str(amount)
     }
-    
-    scheme = network_schemes.get(network, network)
-    params = {'address': address, 'amount': amount}
     if description:
         params['memo'] = description
-        
-    return f"{scheme}:{address}?{urlencode(params)}"
+    return f"{base_uri}?{urlencode(params)}"
 
 def send_payment_link_email(to_email, payment_link, amount, network, description=None):
     """Send email with payment link to the client"""
@@ -259,57 +248,53 @@ def admin_settings():
 
 @app.route('/send_payment_link', methods=['GET', 'POST'])
 def send_payment_link():
-    """Handle sending payment link to client"""
     if request.method == 'POST':
-        amount = request.form.get('amount')
-        client_email = request.form.get('client_email')
-        network = request.form.get('network', 'ethereum')  # Default to ethereum
-        description = request.form.get('description')
-        
-        # Validate input
-        if not amount or not client_email or not network:
-            return jsonify({'error': 'Missing required fields'}), 400
-        
         try:
-            amount = float(amount)
-        except ValueError:
-            return jsonify({'error': 'Invalid amount'}), 400
+            amount = float(request.form.get('amount'))
+            network = request.form.get('network')
             
-        wallet_addresses = get_wallet_addresses()
-        if network not in wallet_addresses:
-            return jsonify({'error': 'Unsupported network'}), 400
-        
-        # Create transaction record
-        transaction_id = str(uuid.uuid4())
-        transaction = Transaction(
-            id=transaction_id,
-            amount=amount,
-            network=network,
-            client_email=client_email,
-            description=description
-        )
-        db.session.add(transaction)
-        db.session.commit()
-        
-        # Generate and send payment link
-        payment_link = generate_payment_link(transaction_id, amount, network, description)
-        
-        if send_payment_link_email(client_email, payment_link, amount, network, description):
+            # Get wallet address for the selected network
+            wallet = WalletAddress.query.filter_by(network=network).first()
+            if not wallet:
+                return jsonify({
+                    'success': False,
+                    'error': f'No wallet address configured for {network}'
+                })
+            
+            # Generate transaction ID
+            transaction_id = str(uuid.uuid4())
+            
+            # Create new transaction
+            transaction = Transaction(
+                id=transaction_id,
+                amount=amount,
+                network=network,
+                client_email='',  # No email required for direct payment links
+                status='pending'
+            )
+            db.session.add(transaction)
+            db.session.commit()
+            
+            # Generate payment link
+            payment_link = generate_trust_wallet_uri(
+                network=network,
+                address=wallet.address,
+                amount=amount
+            )
+            
             return jsonify({
                 'success': True,
-                'message': f'Payment link sent to {client_email}',
-                'payment_link': payment_link,
-                'transaction_id': transaction_id
+                'message': 'Payment link generated successfully',
+                'payment_link': payment_link
             })
-        else:
+            
+        except Exception as e:
+            logger.error(f"Error generating payment link: {str(e)}")
             return jsonify({
                 'success': False,
-                'error': 'Failed to send email, but payment link created',
-                'payment_link': payment_link,
-                'transaction_id': transaction_id
+                'error': 'Failed to generate payment link'
             })
     
-    # GET request - show form
     return render_template('send_link.html')
 
 @app.route('/api/generate_link', methods=['POST'])
