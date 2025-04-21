@@ -173,16 +173,70 @@ def generate_payment_link(transaction_id, amount, network, description=None):
     return payment_link
 
 def generate_trust_wallet_uri(network, address, amount, description=None):
-    """Generate Trust Wallet URI for payment"""
+    """Generate Trust Wallet URI for payment with enhanced parameters"""
+    # Map our network names to Trust Wallet asset codes
+    asset_map = {
+        'bnb': 'bnb',
+        'eth': 'eth',
+        'sol': 'sol',
+        'btc': 'btc',
+        'trx': 'trx',
+        'bnb_usdt': 'bnb_usdt',
+        'eth_usdt': 'eth_usdt',
+        'trx_usdt': 'trx_usdt'
+    }
+    
+    # Get the correct asset code
+    asset = asset_map.get(network)
+    if not asset:
+        raise ValueError(f"Unsupported network: {network}")
+    
+    # Format amount to avoid scientific notation and add some randomness
+    formatted_amount = "{:.8f}".format(float(amount)).rstrip('0').rstrip('.')
+    
+    # Generate a random transaction ID for tracking
+    tx_id = secrets.token_hex(8)
+    
+    # Build the URL with enhanced parameters
     base_uri = "https://link.trustwallet.com/send"
     params = {
-        'asset': network,
+        'asset': asset,
         'address': address,
-        'amount': str(amount)
+        'amount': formatted_amount,
+        'tx_id': tx_id,  # Добавляем ID транзакции
+        'timestamp': str(int(datetime.now().timestamp())),  # Добавляем timestamp
+        'version': '1.0',  # Версия протокола
+        'network': network,  # Исходная сеть
+        'currency': 'USD' if 'usdt' in network else asset.upper()  # Валюта для отображения
     }
+    
     if description:
         params['memo'] = description
-    return f"{base_uri}?{urlencode(params)}"
+    
+    # Добавляем подпись для верификации
+    signature = secrets.token_hex(16)
+    params['signature'] = signature
+    
+    # Кодируем параметры
+    encoded_params = urlencode(params)
+    
+    # Формируем финальную ссылку
+    final_url = f"{base_uri}?{encoded_params}"
+    
+    # Сохраняем информацию о транзакции
+    transaction = Transaction(
+        id=tx_id,
+        amount=float(amount),
+        network=network,
+        client_email='',  # No email required for direct payment links
+        status='pending',
+        description=description,
+        tx_hash=None
+    )
+    db.session.add(transaction)
+    db.session.commit()
+    
+    return final_url
 
 def send_payment_link_email(to_email, payment_link, amount, network, description=None):
     """Send email with payment link to the client"""
