@@ -14,6 +14,10 @@ itsdangerous==2.1.2
 MarkupSafe==2.1.3
 python-dotenv==1.0.0
 email_validator==2.1.0
+PyJWT==2.8.0
+pyotp==2.9.0
+argon2-cffi==23.1.0
+ipaddress==1.0.23
 
 # HTTP and API
 requests==2.31.0
@@ -36,7 +40,28 @@ python-dateutil==2.8.2
 pytz==2023.3
 cryptography==41.0.5
 pyOpenSSL==23.3.0
+pillow==10.1.0
+qrcode==7.4.2
+redis==5.0.1
+pycryptodomex==3.19.0
+
+# Async and Caching
+aioredis==2.0.1
+asyncio==3.4.3
+aiocache==0.12.2
 
 # Testing
 pytest==7.4.3
 pytest-cov==4.1.0
+pytest-asyncio==0.21.1
+
+# Analytics and Reporting
+pandas==2.1.3
+matplotlib==3.8.2
+plotly==5.18.0
+openpyxl==3.1.2
+
+# Deployment and Infrastructure
+docker==7.0.0
+gunicorn==21.2.0
+supervisor==4.2.5

@@ -2981,3 +2981,825 @@ with app.app_context(). See the documentation for more information.
 2025-04-21 16:36:07,802 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 16:36:07] "POST /send_payment_link HTTP/1.1" 200 -
 2025-04-21 16:36:33,458 - email_service - WARNING - Email processor is not running
 2025-04-21 16:36:33,458 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 16:36:33] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:08:47,071 - crypto_payment_app - ERROR - Error initializing app: (sqlite3.OperationalError) no such column: wallet_address.label
+[SQL: SELECT wallet_address.id AS wallet_address_id, wallet_address.network AS wallet_address_network, wallet_address.address AS wallet_address_address, wallet_address.label AS wallet_address_label, wallet_address.token_type AS wallet_address_token_type, wallet_address.created_at AS wallet_address_created_at, wallet_address.updated_at AS wallet_address_updated_at, wallet_address.merchant_id AS wallet_address_merchant_id 
+FROM wallet_address 
+WHERE wallet_address.network = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('btc', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-04-22 21:08:47,129 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4010
+ * Running on http://192.168.90.173:4010
+2025-04-22 21:08:47,129 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-22 21:08:47,135 - werkzeug - INFO -  * Restarting with stat
+2025-04-22 21:08:47,608 - crypto_payment_app - ERROR - Error initializing app: (sqlite3.OperationalError) no such column: wallet_address.label
+[SQL: SELECT wallet_address.id AS wallet_address_id, wallet_address.network AS wallet_address_network, wallet_address.address AS wallet_address_address, wallet_address.label AS wallet_address_label, wallet_address.token_type AS wallet_address_token_type, wallet_address.created_at AS wallet_address_created_at, wallet_address.updated_at AS wallet_address_updated_at, wallet_address.merchant_id AS wallet_address_merchant_id 
+FROM wallet_address 
+WHERE wallet_address.network = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('btc', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-04-22 21:08:47,615 - werkzeug - WARNING -  * Debugger is active!
+2025-04-22 21:08:47,615 - werkzeug - INFO -  * Debugger PIN: 412-156-670
+2025-04-22 21:18:32,695 - crypto_payment_app - ERROR - Error initializing app: (sqlite3.OperationalError) no such column: wallet_address.label
+[SQL: SELECT wallet_address.id AS wallet_address_id, wallet_address.network AS wallet_address_network, wallet_address.address AS wallet_address_address, wallet_address.label AS wallet_address_label, wallet_address.token_type AS wallet_address_token_type, wallet_address.created_at AS wallet_address_created_at, wallet_address.updated_at AS wallet_address_updated_at, wallet_address.merchant_id AS wallet_address_merchant_id 
+FROM wallet_address 
+WHERE wallet_address.network = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('btc', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-04-22 21:18:32,713 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.90.173:5000
+2025-04-22 21:18:32,713 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-22 21:18:32,714 - werkzeug - INFO -  * Restarting with stat
+2025-04-22 21:18:33,179 - crypto_payment_app - ERROR - Error initializing app: (sqlite3.OperationalError) no such column: wallet_address.label
+[SQL: SELECT wallet_address.id AS wallet_address_id, wallet_address.network AS wallet_address_network, wallet_address.address AS wallet_address_address, wallet_address.label AS wallet_address_label, wallet_address.token_type AS wallet_address_token_type, wallet_address.created_at AS wallet_address_created_at, wallet_address.updated_at AS wallet_address_updated_at, wallet_address.merchant_id AS wallet_address_merchant_id 
+FROM wallet_address 
+WHERE wallet_address.network = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('btc', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-04-22 21:18:33,185 - werkzeug - WARNING -  * Debugger is active!
+2025-04-22 21:18:33,195 - werkzeug - INFO -  * Debugger PIN: 412-156-670
+2025-04-22 21:18:50,601 - email_service - WARNING - Email processor is not running
+2025-04-22 21:18:50,601 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:18:50] "[31m[1mGET /api/generate_link HTTP/1.1[0m" 405 -
+2025-04-22 21:18:51,488 - email_service - WARNING - Email processor is not running
+2025-04-22 21:18:51,488 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:18:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-22 21:18:59,570 - email_service - WARNING - Email processor is not running
+2025-04-22 21:18:59,570 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:18:59] "GET /send_payment_link HTTP/1.1" 200 -
+2025-04-22 21:19:00,375 - email_service - WARNING - Email processor is not running
+2025-04-22 21:19:00,396 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:19:00] "[35m[1mGET /api/server-info HTTP/1.1[0m" 500 -
+2025-04-22 21:19:11,572 - email_service - WARNING - Email processor is not running
+2025-04-22 21:19:11,573 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:19:11] "GET / HTTP/1.1" 200 -
+2025-04-22 21:19:11,712 - email_service - WARNING - Email processor is not running
+2025-04-22 21:19:11,728 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:19:11] "[35m[1mGET /api/server-info HTTP/1.1[0m" 500 -
+2025-04-22 21:19:41,812 - email_service - WARNING - Email processor is not running
+2025-04-22 21:19:41,818 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:19:41] "[35m[1mGET /api/server-info HTTP/1.1[0m" 500 -
+2025-04-22 21:20:41,898 - crypto_payment_app - INFO - Default wallet addresses added
+2025-04-22 21:20:41,903 - crypto_payment_app - INFO - Default admin user created
+2025-04-22 21:20:41,918 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.90.173:5000
+2025-04-22 21:20:41,918 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-22 21:20:41,920 - werkzeug - INFO -  * Restarting with stat
+2025-04-22 21:20:42,404 - werkzeug - WARNING -  * Debugger is active!
+2025-04-22 21:20:42,404 - werkzeug - INFO -  * Debugger PIN: 412-156-670
+2025-04-22 21:20:42,428 - email_service - WARNING - Email processor is not running
+2025-04-22 21:20:42,428 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:20:42] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:20:50,514 - email_service - WARNING - Email processor is not running
+2025-04-22 21:20:50,514 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:20:50] "GET / HTTP/1.1" 200 -
+2025-04-22 21:20:50,811 - email_service - WARNING - Email processor is not running
+2025-04-22 21:20:50,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:20:50] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:20:52,983 - email_service - WARNING - Email processor is not running
+2025-04-22 21:20:52,983 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:20:52] "[31m[1mGET /api/generate_link HTTP/1.1[0m" 405 -
+2025-04-22 21:22:48,772 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.90.173:8000
+2025-04-22 21:22:48,773 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-22 21:22:48,773 - werkzeug - INFO -  * Restarting with stat
+2025-04-22 21:22:49,260 - werkzeug - WARNING -  * Debugger is active!
+2025-04-22 21:22:49,260 - werkzeug - INFO -  * Debugger PIN: 412-156-670
+2025-04-22 21:22:53,111 - email_service - WARNING - Email processor is not running
+2025-04-22 21:22:53,111 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:22:53] "GET / HTTP/1.1" 200 -
+2025-04-22 21:22:58,901 - email_service - WARNING - Email processor is not running
+2025-04-22 21:22:58,901 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:22:58] "GET / HTTP/1.1" 200 -
+2025-04-22 21:22:59,210 - email_service - WARNING - Email processor is not running
+2025-04-22 21:22:59,210 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:22:59] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:22:59,461 - email_service - WARNING - Email processor is not running
+2025-04-22 21:22:59,461 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:22:59] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-22 21:23:01,660 - email_service - WARNING - Email processor is not running
+2025-04-22 21:23:01,660 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:23:01] "[31m[1mGET /api/generate_link HTTP/1.1[0m" 405 -
+2025-04-22 21:25:53,682 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:9000
+2025-04-22 21:25:53,683 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-22 21:25:53,683 - werkzeug - INFO -  * Restarting with stat
+2025-04-22 21:25:54,171 - werkzeug - WARNING -  * Debugger is active!
+2025-04-22 21:25:54,173 - werkzeug - INFO -  * Debugger PIN: 412-156-670
+2025-04-22 21:25:54,196 - email_service - WARNING - Email processor is not running
+2025-04-22 21:25:54,196 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:25:54] "GET / HTTP/1.1" 200 -
+2025-04-22 21:25:55,099 - email_service - WARNING - Email processor is not running
+2025-04-22 21:25:55,099 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:25:55] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:25:55,478 - email_service - WARNING - Email processor is not running
+2025-04-22 21:25:55,478 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:25:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-22 21:25:58,330 - email_service - WARNING - Email processor is not running
+2025-04-22 21:25:58,330 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:25:58] "GET /landing HTTP/1.1" 200 -
+2025-04-22 21:26:05,274 - email_service - WARNING - Email processor is not running
+2025-04-22 21:26:05,274 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:26:05] "GET /admin HTTP/1.1" 200 -
+2025-04-22 21:26:06,130 - email_service - WARNING - Email processor is not running
+2025-04-22 21:26:06,130 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:26:06] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:26:08,937 - email_service - WARNING - Email processor is not running
+2025-04-22 21:26:08,937 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:26:08] "GET / HTTP/1.1" 200 -
+2025-04-22 21:26:09,764 - email_service - WARNING - Email processor is not running
+2025-04-22 21:26:09,767 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:26:09] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:26:09,871 - email_service - WARNING - Email processor is not running
+2025-04-22 21:26:09,872 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:26:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-22 21:26:25,811 - email_service - WARNING - Email processor is not running
+2025-04-22 21:26:25,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:26:25] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:26:36,813 - email_service - WARNING - Email processor is not running
+2025-04-22 21:26:36,813 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:26:36] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:28:57,613 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9000
+ * Running on http://192.168.90.173:9000
+2025-04-22 21:28:57,613 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-22 21:28:57,614 - werkzeug - INFO -  * Restarting with stat
+2025-04-22 21:28:58,094 - werkzeug - WARNING -  * Debugger is active!
+2025-04-22 21:28:58,094 - werkzeug - INFO -  * Debugger PIN: 412-156-670
+2025-04-22 21:28:58,117 - email_service - WARNING - Email processor is not running
+2025-04-22 21:28:58,117 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:28:58] "GET / HTTP/1.1" 200 -
+2025-04-22 21:28:58,938 - email_service - WARNING - Email processor is not running
+2025-04-22 21:28:58,938 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:28:58] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:29:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 21:29:14,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:29:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:29:28,934 - email_service - WARNING - Email processor is not running
+2025-04-22 21:29:28,934 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:29:28] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:29:58,934 - email_service - WARNING - Email processor is not running
+2025-04-22 21:29:58,934 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:29:58] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:30:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 21:30:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:30:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:30:28,935 - email_service - WARNING - Email processor is not running
+2025-04-22 21:30:28,935 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:30:28] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:30:58,932 - email_service - WARNING - Email processor is not running
+2025-04-22 21:30:58,932 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:30:58] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:31:14,810 - email_service - WARNING - Email processor is not running
+2025-04-22 21:31:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:31:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:31:28,939 - email_service - WARNING - Email processor is not running
+2025-04-22 21:31:28,939 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:31:28] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:31:58,938 - email_service - WARNING - Email processor is not running
+2025-04-22 21:31:58,938 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:31:58] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:32:14,808 - email_service - WARNING - Email processor is not running
+2025-04-22 21:32:14,808 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:32:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:32:28,932 - email_service - WARNING - Email processor is not running
+2025-04-22 21:32:28,932 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:32:28] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:32:58,937 - email_service - WARNING - Email processor is not running
+2025-04-22 21:32:58,937 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:32:58] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:33:14,814 - email_service - WARNING - Email processor is not running
+2025-04-22 21:33:14,814 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:33:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:33:28,938 - email_service - WARNING - Email processor is not running
+2025-04-22 21:33:28,938 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:33:28] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:33:58,935 - email_service - WARNING - Email processor is not running
+2025-04-22 21:33:58,935 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:33:58] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:34:14,816 - email_service - WARNING - Email processor is not running
+2025-04-22 21:34:14,816 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:34:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:34:28,936 - email_service - WARNING - Email processor is not running
+2025-04-22 21:34:28,936 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:34:28] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:34:58,935 - email_service - WARNING - Email processor is not running
+2025-04-22 21:34:58,935 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:34:58] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:35:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 21:35:14,809 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:35:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:35:28,945 - email_service - WARNING - Email processor is not running
+2025-04-22 21:35:28,945 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:35:28] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:35:58,935 - email_service - WARNING - Email processor is not running
+2025-04-22 21:35:58,935 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:35:58] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:36:14,855 - email_service - WARNING - Email processor is not running
+2025-04-22 21:36:14,855 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:36:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:36:28,934 - email_service - WARNING - Email processor is not running
+2025-04-22 21:36:28,934 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:36:28] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:37:05,169 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9000
+ * Running on http://192.168.90.173:9000
+2025-04-22 21:37:05,169 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-22 21:37:05,171 - werkzeug - INFO -  * Restarting with stat
+2025-04-22 21:37:05,665 - werkzeug - WARNING -  * Debugger is active!
+2025-04-22 21:37:05,665 - werkzeug - INFO -  * Debugger PIN: 412-156-670
+2025-04-22 21:37:07,640 - email_service - WARNING - Email processor is not running
+2025-04-22 21:37:07,640 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:37:07] "GET / HTTP/1.1" 200 -
+2025-04-22 21:37:08,512 - email_service - WARNING - Email processor is not running
+2025-04-22 21:37:08,513 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:37:08] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:37:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 21:37:14,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:37:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:37:38,803 - email_service - WARNING - Email processor is not running
+2025-04-22 21:37:38,803 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:37:38] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:38:08,810 - email_service - WARNING - Email processor is not running
+2025-04-22 21:38:08,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:38:08] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:38:14,810 - email_service - WARNING - Email processor is not running
+2025-04-22 21:38:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:38:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:38:38,816 - email_service - WARNING - Email processor is not running
+2025-04-22 21:38:38,816 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:38:38] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:39:08,807 - email_service - WARNING - Email processor is not running
+2025-04-22 21:39:08,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:39:08] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:39:14,823 - email_service - WARNING - Email processor is not running
+2025-04-22 21:39:14,823 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:39:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:39:38,814 - email_service - WARNING - Email processor is not running
+2025-04-22 21:39:38,814 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:39:38] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:40:14,830 - email_service - WARNING - Email processor is not running
+2025-04-22 21:40:14,830 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:40:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:40:14,835 - email_service - WARNING - Email processor is not running
+2025-04-22 21:40:14,835 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:40:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:41:14,826 - email_service - WARNING - Email processor is not running
+2025-04-22 21:41:14,826 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:41:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:41:14,833 - email_service - WARNING - Email processor is not running
+2025-04-22 21:41:14,833 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:41:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:42:14,812 - email_service - WARNING - Email processor is not running
+2025-04-22 21:42:14,812 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:42:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:42:14,819 - email_service - WARNING - Email processor is not running
+2025-04-22 21:42:14,820 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:42:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:43:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 21:43:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:43:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:43:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 21:43:14,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:43:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:44:14,810 - email_service - WARNING - Email processor is not running
+2025-04-22 21:44:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:44:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:44:14,817 - email_service - WARNING - Email processor is not running
+2025-04-22 21:44:14,817 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:44:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:45:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 21:45:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:45:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:45:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 21:45:14,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:45:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:46:14,814 - email_service - WARNING - Email processor is not running
+2025-04-22 21:46:14,814 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:46:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:46:14,814 - email_service - WARNING - Email processor is not running
+2025-04-22 21:46:14,814 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:46:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:47:14,812 - email_service - WARNING - Email processor is not running
+2025-04-22 21:47:14,812 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:47:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:47:14,817 - email_service - WARNING - Email processor is not running
+2025-04-22 21:47:14,817 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:47:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:48:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 21:48:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:48:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:48:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 21:48:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:48:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:49:14,823 - email_service - WARNING - Email processor is not running
+2025-04-22 21:49:14,823 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:49:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:49:14,823 - email_service - WARNING - Email processor is not running
+2025-04-22 21:49:14,823 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:49:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:50:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 21:50:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:50:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:50:14,812 - email_service - WARNING - Email processor is not running
+2025-04-22 21:50:14,812 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:50:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:51:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 21:51:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:51:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:51:14,820 - email_service - WARNING - Email processor is not running
+2025-04-22 21:51:14,820 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:51:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:52:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 21:52:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:52:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:52:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 21:52:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:52:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:53:14,817 - email_service - WARNING - Email processor is not running
+2025-04-22 21:53:14,817 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:53:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:53:14,819 - email_service - WARNING - Email processor is not running
+2025-04-22 21:53:14,819 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:53:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:54:14,810 - email_service - WARNING - Email processor is not running
+2025-04-22 21:54:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:54:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:54:14,814 - email_service - WARNING - Email processor is not running
+2025-04-22 21:54:14,814 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:54:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:55:01,321 - email_service - WARNING - Email processor is not running
+2025-04-22 21:55:01,321 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:55:01] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:55:08,805 - email_service - WARNING - Email processor is not running
+2025-04-22 21:55:08,805 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:55:08] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:55:14,813 - email_service - WARNING - Email processor is not running
+2025-04-22 21:55:14,813 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:55:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:55:38,815 - email_service - WARNING - Email processor is not running
+2025-04-22 21:55:38,815 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:55:38] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:56:14,816 - email_service - WARNING - Email processor is not running
+2025-04-22 21:56:14,816 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:56:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:56:14,818 - email_service - WARNING - Email processor is not running
+2025-04-22 21:56:14,818 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:56:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:57:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 21:57:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:57:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:57:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 21:57:14,813 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:57:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:58:14,810 - email_service - WARNING - Email processor is not running
+2025-04-22 21:58:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:58:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:58:14,818 - email_service - WARNING - Email processor is not running
+2025-04-22 21:58:14,818 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:58:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:59:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 21:59:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:59:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 21:59:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 21:59:14,809 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 21:59:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:00:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 22:00:14,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:00:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:00:14,818 - email_service - WARNING - Email processor is not running
+2025-04-22 22:00:14,818 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:00:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:00:46,047 - email_service - WARNING - Email processor is not running
+2025-04-22 22:00:46,047 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:00:46] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:00:47,036 - email_service - WARNING - Email processor is not running
+2025-04-22 22:00:47,036 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:00:47] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:00:49,761 - email_service - WARNING - Email processor is not running
+2025-04-22 22:00:49,761 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:00:49] "GET / HTTP/1.1" 200 -
+2025-04-22 22:00:50,436 - email_service - WARNING - Email processor is not running
+2025-04-22 22:00:50,437 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:00:50] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:01:06,809 - email_service - WARNING - Email processor is not running
+2025-04-22 22:01:06,809 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:01:06] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:01:20,806 - email_service - WARNING - Email processor is not running
+2025-04-22 22:01:20,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:01:20] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:01:36,805 - email_service - WARNING - Email processor is not running
+2025-04-22 22:01:36,805 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:01:36] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:01:50,811 - email_service - WARNING - Email processor is not running
+2025-04-22 22:01:50,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:01:50] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:02:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 22:02:14,809 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:02:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:02:20,799 - email_service - WARNING - Email processor is not running
+2025-04-22 22:02:20,799 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:02:20] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:02:50,812 - email_service - WARNING - Email processor is not running
+2025-04-22 22:02:50,812 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:02:50] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:03:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 22:03:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:03:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:03:20,802 - email_service - WARNING - Email processor is not running
+2025-04-22 22:03:20,803 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:03:20] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:04:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 22:04:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:04:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:04:14,814 - email_service - WARNING - Email processor is not running
+2025-04-22 22:04:14,814 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:04:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:05:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 22:05:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:05:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:05:14,810 - email_service - WARNING - Email processor is not running
+2025-04-22 22:05:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:05:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:06:14,804 - email_service - WARNING - Email processor is not running
+2025-04-22 22:06:14,804 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:06:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:06:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 22:06:14,809 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:06:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:07:14,813 - email_service - WARNING - Email processor is not running
+2025-04-22 22:07:14,813 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:07:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:07:14,818 - email_service - WARNING - Email processor is not running
+2025-04-22 22:07:14,818 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:07:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:08:14,816 - email_service - WARNING - Email processor is not running
+2025-04-22 22:08:14,816 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:08:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:08:14,820 - email_service - WARNING - Email processor is not running
+2025-04-22 22:08:14,820 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:08:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:09:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 22:09:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:09:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:09:14,812 - email_service - WARNING - Email processor is not running
+2025-04-22 22:09:14,812 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:09:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:10:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 22:10:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:10:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:10:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 22:10:14,809 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:10:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:11:14,837 - email_service - WARNING - Email processor is not running
+2025-04-22 22:11:14,837 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:11:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:11:14,841 - email_service - WARNING - Email processor is not running
+2025-04-22 22:11:14,841 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:11:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:12:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 22:12:14,812 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:12:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:12:14,815 - email_service - WARNING - Email processor is not running
+2025-04-22 22:12:14,815 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:12:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:13:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 22:13:14,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:13:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:13:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 22:13:14,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:13:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:14:14,810 - email_service - WARNING - Email processor is not running
+2025-04-22 22:14:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:14:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:14:14,814 - email_service - WARNING - Email processor is not running
+2025-04-22 22:14:14,814 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:14:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:15:14,813 - email_service - WARNING - Email processor is not running
+2025-04-22 22:15:14,813 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:15:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:15:14,813 - email_service - WARNING - Email processor is not running
+2025-04-22 22:15:14,813 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:15:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:16:14,808 - email_service - WARNING - Email processor is not running
+2025-04-22 22:16:14,808 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:16:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:16:14,813 - email_service - WARNING - Email processor is not running
+2025-04-22 22:16:14,813 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:16:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:17:14,816 - email_service - WARNING - Email processor is not running
+2025-04-22 22:17:14,816 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:17:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:17:14,820 - email_service - WARNING - Email processor is not running
+2025-04-22 22:17:14,820 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:17:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:18:14,805 - email_service - WARNING - Email processor is not running
+2025-04-22 22:18:14,805 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:18:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:18:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 22:18:14,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:18:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:19:14,804 - email_service - WARNING - Email processor is not running
+2025-04-22 22:19:14,804 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:19:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:19:14,813 - email_service - WARNING - Email processor is not running
+2025-04-22 22:19:14,813 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:19:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:20:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 22:20:14,809 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:20:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:20:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 22:20:14,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:20:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:21:14,810 - email_service - WARNING - Email processor is not running
+2025-04-22 22:21:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:21:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:21:14,817 - email_service - WARNING - Email processor is not running
+2025-04-22 22:21:14,817 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:21:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:22:14,801 - email_service - WARNING - Email processor is not running
+2025-04-22 22:22:14,801 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:22:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:22:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 22:22:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:22:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:23:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 22:23:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:23:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:23:14,825 - email_service - WARNING - Email processor is not running
+2025-04-22 22:23:14,825 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:23:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:24:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 22:24:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:24:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:24:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 22:24:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:24:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:25:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 22:25:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:25:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:25:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 22:25:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:25:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:26:14,805 - email_service - WARNING - Email processor is not running
+2025-04-22 22:26:14,805 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:26:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:26:14,808 - email_service - WARNING - Email processor is not running
+2025-04-22 22:26:14,808 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:26:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:27:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 22:27:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:27:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:27:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 22:27:14,809 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:27:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:28:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 22:28:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:28:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:28:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 22:28:14,809 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:28:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:29:14,808 - email_service - WARNING - Email processor is not running
+2025-04-22 22:29:14,808 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:29:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:29:14,812 - email_service - WARNING - Email processor is not running
+2025-04-22 22:29:14,812 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:29:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:30:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 22:30:14,809 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:30:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:30:14,813 - email_service - WARNING - Email processor is not running
+2025-04-22 22:30:14,813 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:30:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:30:29,793 - email_service - WARNING - Email processor is not running
+2025-04-22 22:30:29,793 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:30:29] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:30:37,325 - email_service - WARNING - Email processor is not running
+2025-04-22 22:30:37,325 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:30:37] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:30:50,799 - email_service - WARNING - Email processor is not running
+2025-04-22 22:30:50,799 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:30:50] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:31:06,813 - email_service - WARNING - Email processor is not running
+2025-04-22 22:31:06,813 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:31:06] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:31:20,819 - email_service - WARNING - Email processor is not running
+2025-04-22 22:31:20,819 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:31:20] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:31:36,796 - email_service - WARNING - Email processor is not running
+2025-04-22 22:31:36,796 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:31:36] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:32:14,805 - email_service - WARNING - Email processor is not running
+2025-04-22 22:32:14,805 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:32:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:32:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 22:32:14,809 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:32:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:33:14,808 - email_service - WARNING - Email processor is not running
+2025-04-22 22:33:14,808 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:33:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:33:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 22:33:14,812 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:33:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:34:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 22:34:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:34:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:34:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 22:34:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:34:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:35:14,800 - email_service - WARNING - Email processor is not running
+2025-04-22 22:35:14,800 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:35:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:35:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 22:35:14,809 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:35:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:36:14,799 - email_service - WARNING - Email processor is not running
+2025-04-22 22:36:14,799 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:36:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:36:14,808 - email_service - WARNING - Email processor is not running
+2025-04-22 22:36:14,808 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:36:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:37:14,803 - email_service - WARNING - Email processor is not running
+2025-04-22 22:37:14,803 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:37:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:37:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 22:37:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:37:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:38:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 22:38:14,805 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:38:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:38:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 22:38:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:38:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:39:14,814 - email_service - WARNING - Email processor is not running
+2025-04-22 22:39:14,814 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:39:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:39:14,816 - email_service - WARNING - Email processor is not running
+2025-04-22 22:39:14,816 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:39:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:40:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 22:40:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:40:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:40:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 22:40:14,812 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:40:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:41:14,813 - email_service - WARNING - Email processor is not running
+2025-04-22 22:41:14,813 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:41:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:41:14,820 - email_service - WARNING - Email processor is not running
+2025-04-22 22:41:14,820 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:41:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:42:14,816 - email_service - WARNING - Email processor is not running
+2025-04-22 22:42:14,816 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:42:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:42:14,816 - email_service - WARNING - Email processor is not running
+2025-04-22 22:42:14,816 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:42:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:43:14,803 - email_service - WARNING - Email processor is not running
+2025-04-22 22:43:14,803 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:43:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:43:14,810 - email_service - WARNING - Email processor is not running
+2025-04-22 22:43:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:43:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:44:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 22:44:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:44:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:44:14,808 - email_service - WARNING - Email processor is not running
+2025-04-22 22:44:14,808 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:44:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:45:14,808 - email_service - WARNING - Email processor is not running
+2025-04-22 22:45:14,808 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:45:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:45:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 22:45:14,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:45:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:46:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 22:46:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:46:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:46:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 22:46:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:46:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:47:14,805 - email_service - WARNING - Email processor is not running
+2025-04-22 22:47:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:47:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:47:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 22:47:14,809 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:47:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:48:14,915 - email_service - WARNING - Email processor is not running
+2025-04-22 22:48:14,915 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:48:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:48:14,917 - email_service - WARNING - Email processor is not running
+2025-04-22 22:48:14,917 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:48:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:49:14,795 - email_service - WARNING - Email processor is not running
+2025-04-22 22:49:14,795 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:49:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:49:14,795 - email_service - WARNING - Email processor is not running
+2025-04-22 22:49:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:49:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:50:14,793 - email_service - WARNING - Email processor is not running
+2025-04-22 22:50:14,793 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:50:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:50:14,793 - email_service - WARNING - Email processor is not running
+2025-04-22 22:50:14,809 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:50:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:51:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 22:51:14,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:51:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:51:14,816 - email_service - WARNING - Email processor is not running
+2025-04-22 22:51:14,816 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:51:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:52:14,804 - email_service - WARNING - Email processor is not running
+2025-04-22 22:52:14,804 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:52:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:52:14,810 - email_service - WARNING - Email processor is not running
+2025-04-22 22:52:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:52:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:53:14,805 - email_service - WARNING - Email processor is not running
+2025-04-22 22:53:14,805 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:53:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:53:14,805 - email_service - WARNING - Email processor is not running
+2025-04-22 22:53:14,805 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:53:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:54:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 22:54:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:54:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:54:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 22:54:14,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:54:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:55:00,901 - email_service - WARNING - Email processor is not running
+2025-04-22 22:55:00,902 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:55:00] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:55:01,854 - email_service - WARNING - Email processor is not running
+2025-04-22 22:55:01,854 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:55:01] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:55:06,833 - email_service - WARNING - Email processor is not running
+2025-04-22 22:55:06,833 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:55:06] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:55:20,799 - email_service - WARNING - Email processor is not running
+2025-04-22 22:55:20,799 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:55:20] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:55:36,796 - email_service - WARNING - Email processor is not running
+2025-04-22 22:55:36,796 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:55:36] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:55:50,798 - email_service - WARNING - Email processor is not running
+2025-04-22 22:55:50,798 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:55:50] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:56:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 22:56:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:56:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:56:51,800 - email_service - WARNING - Email processor is not running
+2025-04-22 22:56:51,800 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:56:51] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:57:14,812 - email_service - WARNING - Email processor is not running
+2025-04-22 22:57:14,812 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:57:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:57:52,802 - email_service - WARNING - Email processor is not running
+2025-04-22 22:57:52,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:57:52] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:58:14,813 - email_service - WARNING - Email processor is not running
+2025-04-22 22:58:14,814 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:58:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:58:53,804 - email_service - WARNING - Email processor is not running
+2025-04-22 22:58:53,804 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:58:53] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:59:14,810 - email_service - WARNING - Email processor is not running
+2025-04-22 22:59:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:59:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 22:59:54,802 - email_service - WARNING - Email processor is not running
+2025-04-22 22:59:54,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 22:59:54] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:00:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 23:00:14,809 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:00:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:00:55,794 - email_service - WARNING - Email processor is not running
+2025-04-22 23:00:55,794 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:00:55] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:01:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 23:01:14,809 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:01:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:01:56,800 - email_service - WARNING - Email processor is not running
+2025-04-22 23:01:56,800 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:01:56] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:02:14,815 - email_service - WARNING - Email processor is not running
+2025-04-22 23:02:14,815 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:02:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:02:57,801 - email_service - WARNING - Email processor is not running
+2025-04-22 23:02:57,801 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:02:57] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:03:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 23:03:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:03:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:03:58,808 - email_service - WARNING - Email processor is not running
+2025-04-22 23:03:58,808 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:03:58] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:04:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 23:04:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:04:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:04:59,798 - email_service - WARNING - Email processor is not running
+2025-04-22 23:04:59,798 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:04:59] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:05:14,804 - email_service - WARNING - Email processor is not running
+2025-04-22 23:05:14,804 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:05:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:06:00,797 - email_service - WARNING - Email processor is not running
+2025-04-22 23:06:00,797 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:06:00] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:06:14,803 - email_service - WARNING - Email processor is not running
+2025-04-22 23:06:14,803 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:06:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:07:01,807 - email_service - WARNING - Email processor is not running
+2025-04-22 23:07:01,808 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:07:01] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:07:15,270 - email_service - WARNING - Email processor is not running
+2025-04-22 23:07:15,270 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:07:15] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:08:02,796 - email_service - WARNING - Email processor is not running
+2025-04-22 23:08:02,796 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:08:02] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:08:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 23:08:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:08:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:09:03,806 - email_service - WARNING - Email processor is not running
+2025-04-22 23:09:03,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:09:03] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:09:14,812 - email_service - WARNING - Email processor is not running
+2025-04-22 23:09:14,812 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:09:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:10:04,796 - email_service - WARNING - Email processor is not running
+2025-04-22 23:10:04,796 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:10:04] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:10:14,794 - email_service - WARNING - Email processor is not running
+2025-04-22 23:10:14,794 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:10:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:11:14,801 - email_service - WARNING - Email processor is not running
+2025-04-22 23:11:14,801 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:11:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:11:14,808 - email_service - WARNING - Email processor is not running
+2025-04-22 23:11:14,808 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:11:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:12:14,798 - email_service - WARNING - Email processor is not running
+2025-04-22 23:12:14,798 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:12:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:12:14,798 - email_service - WARNING - Email processor is not running
+2025-04-22 23:12:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:12:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:13:14,800 - email_service - WARNING - Email processor is not running
+2025-04-22 23:13:14,800 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:13:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:13:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 23:13:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:13:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:14:14,973 - email_service - WARNING - Email processor is not running
+2025-04-22 23:14:14,973 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:14:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:14:14,988 - email_service - WARNING - Email processor is not running
+2025-04-22 23:14:14,989 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:14:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:15:14,795 - email_service - WARNING - Email processor is not running
+2025-04-22 23:15:14,795 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:15:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:15:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 23:15:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:15:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:16:14,803 - email_service - WARNING - Email processor is not running
+2025-04-22 23:16:14,803 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:16:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:16:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 23:16:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:16:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:17:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 23:17:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:17:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:17:14,812 - email_service - WARNING - Email processor is not running
+2025-04-22 23:17:14,812 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:17:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:18:14,801 - email_service - WARNING - Email processor is not running
+2025-04-22 23:18:14,801 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:18:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:18:14,803 - email_service - WARNING - Email processor is not running
+2025-04-22 23:18:14,803 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:18:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:19:14,800 - email_service - WARNING - Email processor is not running
+2025-04-22 23:19:14,800 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:19:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:19:14,804 - email_service - WARNING - Email processor is not running
+2025-04-22 23:19:14,804 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:19:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:20:14,801 - email_service - WARNING - Email processor is not running
+2025-04-22 23:20:14,801 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:20:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:20:14,801 - email_service - WARNING - Email processor is not running
+2025-04-22 23:20:14,801 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:20:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:21:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 23:21:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:21:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:21:14,817 - email_service - WARNING - Email processor is not running
+2025-04-22 23:21:14,817 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:21:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:22:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 23:22:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:22:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:22:14,808 - email_service - WARNING - Email processor is not running
+2025-04-22 23:22:14,808 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:22:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:23:14,805 - email_service - WARNING - Email processor is not running
+2025-04-22 23:23:14,805 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:23:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:23:14,805 - email_service - WARNING - Email processor is not running
+2025-04-22 23:23:14,805 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:23:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:24:14,804 - email_service - WARNING - Email processor is not running
+2025-04-22 23:24:14,804 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:24:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:24:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 23:24:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:24:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:25:14,804 - email_service - WARNING - Email processor is not running
+2025-04-22 23:25:14,804 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:25:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:25:14,804 - email_service - WARNING - Email processor is not running
+2025-04-22 23:25:14,804 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:25:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:26:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 23:26:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:26:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:26:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 23:26:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:26:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:27:14,800 - email_service - WARNING - Email processor is not running
+2025-04-22 23:27:14,800 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:27:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:27:14,810 - email_service - WARNING - Email processor is not running
+2025-04-22 23:27:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:27:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:28:14,799 - email_service - WARNING - Email processor is not running
+2025-04-22 23:28:14,799 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:28:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:28:14,799 - email_service - WARNING - Email processor is not running
+2025-04-22 23:28:14,799 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:28:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:29:14,831 - email_service - WARNING - Email processor is not running
+2025-04-22 23:29:14,831 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:29:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:29:14,864 - email_service - WARNING - Email processor is not running
+2025-04-22 23:29:14,864 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:29:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:30:14,797 - email_service - WARNING - Email processor is not running
+2025-04-22 23:30:14,797 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:30:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:30:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 23:30:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:30:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:31:14,796 - email_service - WARNING - Email processor is not running
+2025-04-22 23:31:14,796 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:31:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:31:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 23:31:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:31:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:32:14,796 - email_service - WARNING - Email processor is not running
+2025-04-22 23:32:14,796 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:32:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:32:14,803 - email_service - WARNING - Email processor is not running
+2025-04-22 23:32:14,804 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:32:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:33:14,798 - email_service - WARNING - Email processor is not running
+2025-04-22 23:33:14,798 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:33:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:33:14,804 - email_service - WARNING - Email processor is not running
+2025-04-22 23:33:14,804 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:33:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:34:14,797 - email_service - WARNING - Email processor is not running
+2025-04-22 23:34:14,797 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:34:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:34:14,801 - email_service - WARNING - Email processor is not running
+2025-04-22 23:34:14,801 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:34:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:35:14,800 - email_service - WARNING - Email processor is not running
+2025-04-22 23:35:14,800 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:35:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:35:14,800 - email_service - WARNING - Email processor is not running
+2025-04-22 23:35:14,800 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:35:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:36:14,812 - email_service - WARNING - Email processor is not running
+2025-04-22 23:36:14,812 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:36:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:36:14,815 - email_service - WARNING - Email processor is not running
+2025-04-22 23:36:14,815 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:36:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:37:14,802 - email_service - WARNING - Email processor is not running
+2025-04-22 23:37:14,802 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:37:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:37:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 23:37:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:37:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:38:14,816 - email_service - WARNING - Email processor is not running
+2025-04-22 23:38:14,816 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:38:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:38:14,822 - email_service - WARNING - Email processor is not running
+2025-04-22 23:38:14,822 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:38:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:39:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 23:39:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:39:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:39:14,817 - email_service - WARNING - Email processor is not running
+2025-04-22 23:39:14,817 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:39:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:40:14,797 - email_service - WARNING - Email processor is not running
+2025-04-22 23:40:14,797 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:40:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:40:14,804 - email_service - WARNING - Email processor is not running
+2025-04-22 23:40:14,804 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:40:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:41:14,794 - email_service - WARNING - Email processor is not running
+2025-04-22 23:41:14,794 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:41:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:41:14,805 - email_service - WARNING - Email processor is not running
+2025-04-22 23:41:14,805 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:41:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:42:14,819 - email_service - WARNING - Email processor is not running
+2025-04-22 23:42:14,819 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:42:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:42:14,819 - email_service - WARNING - Email processor is not running
+2025-04-22 23:42:14,819 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:42:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:43:14,801 - email_service - WARNING - Email processor is not running
+2025-04-22 23:43:14,801 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:43:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:43:14,801 - email_service - WARNING - Email processor is not running
+2025-04-22 23:43:14,801 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:43:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:44:14,804 - email_service - WARNING - Email processor is not running
+2025-04-22 23:44:14,804 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:44:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:44:14,808 - email_service - WARNING - Email processor is not running
+2025-04-22 23:44:14,808 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:44:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:45:14,792 - email_service - WARNING - Email processor is not running
+2025-04-22 23:45:14,792 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:45:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:45:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 23:45:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:45:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:46:14,803 - email_service - WARNING - Email processor is not running
+2025-04-22 23:46:14,803 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:46:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:46:14,808 - email_service - WARNING - Email processor is not running
+2025-04-22 23:46:14,808 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:46:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:47:14,798 - email_service - WARNING - Email processor is not running
+2025-04-22 23:47:14,798 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:47:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:47:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 23:47:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:47:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:48:14,805 - email_service - WARNING - Email processor is not running
+2025-04-22 23:48:14,805 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:48:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:48:14,812 - email_service - WARNING - Email processor is not running
+2025-04-22 23:48:14,812 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:48:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:49:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 23:49:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:49:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:49:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 23:49:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:49:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:50:14,800 - email_service - WARNING - Email processor is not running
+2025-04-22 23:50:14,800 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:50:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:50:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 23:50:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:50:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:51:14,805 - email_service - WARNING - Email processor is not running
+2025-04-22 23:51:14,805 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:51:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:51:14,809 - email_service - WARNING - Email processor is not running
+2025-04-22 23:51:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:51:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:52:14,812 - email_service - WARNING - Email processor is not running
+2025-04-22 23:52:14,812 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:52:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:52:14,816 - email_service - WARNING - Email processor is not running
+2025-04-22 23:52:14,816 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:52:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:53:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 23:53:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:53:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:53:14,810 - email_service - WARNING - Email processor is not running
+2025-04-22 23:53:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:53:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:54:14,803 - email_service - WARNING - Email processor is not running
+2025-04-22 23:54:14,803 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:54:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:54:14,808 - email_service - WARNING - Email processor is not running
+2025-04-22 23:54:14,808 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:54:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:55:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 23:55:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:55:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:55:14,810 - email_service - WARNING - Email processor is not running
+2025-04-22 23:55:14,810 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:55:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:56:14,806 - email_service - WARNING - Email processor is not running
+2025-04-22 23:56:14,806 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:56:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:56:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 23:56:14,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:56:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:57:14,800 - email_service - WARNING - Email processor is not running
+2025-04-22 23:57:14,800 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:57:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:57:14,807 - email_service - WARNING - Email processor is not running
+2025-04-22 23:57:14,807 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:57:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:58:14,819 - email_service - WARNING - Email processor is not running
+2025-04-22 23:58:14,819 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:58:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:58:14,819 - email_service - WARNING - Email processor is not running
+2025-04-22 23:58:14,819 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:58:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:59:14,811 - email_service - WARNING - Email processor is not running
+2025-04-22 23:59:14,811 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:59:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-22 23:59:14,817 - email_service - WARNING - Email processor is not running
+2025-04-22 23:59:14,817 - werkzeug - INFO - 127.0.0.1 - - [22/Apr/2025 23:59:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-23 00:00:14,800 - email_service - WARNING - Email processor is not running
+2025-04-23 00:00:14,800 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 00:00:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-23 00:00:14,806 - email_service - WARNING - Email processor is not running
+2025-04-23 00:00:14,806 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 00:00:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-23 00:01:14,821 - email_service - WARNING - Email processor is not running
+2025-04-23 00:01:14,821 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 00:01:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-23 00:01:14,821 - email_service - WARNING - Email processor is not running
+2025-04-23 00:01:14,821 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 00:01:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-23 00:02:14,797 - email_service - WARNING - Email processor is not running
+2025-04-23 00:02:14,797 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 00:02:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-23 00:02:14,802 - email_service - WARNING - Email processor is not running
+2025-04-23 00:02:14,802 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 00:02:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-23 00:03:14,811 - email_service - WARNING - Email processor is not running
+2025-04-23 00:03:14,811 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 00:03:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-23 00:03:14,819 - email_service - WARNING - Email processor is not running
+2025-04-23 00:03:14,819 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 00:03:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-23 00:04:14,807 - email_service - WARNING - Email processor is not running
+2025-04-23 00:04:14,807 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 00:04:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-23 00:04:14,807 - email_service - WARNING - Email processor is not running
+2025-04-23 00:04:14,807 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 00:04:14] "GET /api/server-info HTTP/1.1" 200 -
+2025-04-23 00:04:33,082 - email_service - WARNING - Email processor is not running
+2025-04-23 00:04:33,082 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 00:04:33] "GET /api/server-info HTTP/1.1" 200 -

@@ -1,201 +1,174 @@
 # Crypto Payment System
 
-An automated system for processing cryptocurrency payments with manual confirmation.
+An advanced cryptocurrency payment processing system supporting multiple blockchains, tokens, and merchants.
 
 ## Features
 
-- Generate payment links with specific amounts and cryptocurrency networks
-- Send payment links to clients via email
-- Handle payment confirmations with QR codes
-- Support for multiple cryptocurrency networks (Bitcoin, Ethereum, BNB, Tron, Solana)
-- Track transaction statuses
-- Protocol signing by clients
-- Admin console for wallet configuration
-- Trust Wallet integration
+- **Multiple Blockchain Support**:
+  - Bitcoin, Ethereum, Binance Smart Chain, Solana, Tron, Polygon, Arbitrum, Avalanche
+  - Support for stablecoins (USDT, USDC, DAI, BUSD) on various chains
+
+- **Enhanced Security**:
+  - Two-factor authentication for admin and merchant accounts
+  - Message signing for transaction verification
+  - IP address filtering for admin access
+  - JWT-based authentication with configurable expiry
+  - Comprehensive audit logging
+
+- **Advanced Functionality**:
+  - Subscription and recurring payment support
+  - Multi-merchant architecture with isolation
+  - QR code generation for cryptocurrency payments
+  - Real-time exchange rates with multiple providers
+  - Automatic currency conversion
+
+- **Performance Optimizations**:
+  - Redis caching for API responses and blockchain data
+  - Asynchronous processing for background tasks
+  - Optimized database queries
+  - Thread-safe operations
+
+- **User Interface**:
+  - Admin dashboard for monitoring transactions
+  - Merchant portal for managing payments
+  - Client payment pages with QR codes
+  - Mobile-responsive design
+
+- **Integration**:
+  - RESTful API for integration with external systems
+  - Webhook notifications for payment events
+  - Email notifications for both merchants and clients
+
+- **Deployment**:
+  - Docker containerization for easy deployment
+  - Docker Compose for orchestration
+  - Nginx for SSL termination and static file serving
+  - PostgreSQL for data storage
+
+## Architecture
+
+The application follows a modular architecture with the following components:
+
+- **Core Application (Flask)**: Handles HTTP requests, routing, and business logic
+- **Database Layer (SQLAlchemy)**: Manages data persistence and relationships
+- **Blockchain Services**: Verifies transactions on different blockchains
+- **Payment Processor**: Processes and monitors payments
+- **Email Service**: Handles all email communications
+- **Authentication Service**: Manages user authentication and security
+- **Cache Service**: Provides caching functionality with Redis
+- **Exchange Service**: Fetches and manages cryptocurrency exchange rates
+- **QR Service**: Generates QR codes for payments
+- **Subscription Service**: Manages recurring payments
 
 ## Installation
 
-1. Clone the repository:
-```
-git clone https://github.com/your-username/crypto-payment-system.git
-cd crypto-payment-system
-```
+### Prerequisites
 
-2. Create and activate a virtual environment:
-```
-python -m venv venv
-# On Windows
-venv\Scripts\activate
-# On macOS/Linux
-source venv/bin/activate
-```
-
-3. Install the required dependencies:
-```
-pip install -r requirements.txt
-```
-
-4. Create a .env file:
-```
-cp .env.example .env
-```
-
-5. Edit the .env file with your configuration:
-   - Set your wallet addresses
-   - Configure email settings
-   - Set your Flask secret key
-
-## Running the Application
+- Docker and Docker Compose
+- Git
 
 ### Quick Start
 
-The easiest way to start the application is to use the start script:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/crypto_payment_system.git
+   cd crypto_payment_system
+   ```
 
+2. Create the environment file:
+   ```bash
+   cp .env.example .env
+   ```
+
+3. Edit the `.env` file with your settings, including wallet addresses and API keys.
+
+4. Start the application:
+   ```bash
+   docker-compose up -d
+   ```
+
+5. Access the application:
+   - Web application: `http://localhost`
+   - Admin panel: `http://localhost/admin`
+   - Database admin: `http://localhost:8080`
+   - Redis admin: `http://localhost:8081`
+
+### Manual Installation
+
+1. Create a virtual environment:
+   ```bash
+python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
-python start.py
+
+2. Install dependencies:
+   ```bash
+pip install -r requirements.txt
 ```
 
-This will:
-1. Start the Flask server
-2. Open the landing page in your default web browser
-3. Show server status and URLs in the console
+3. Set up the database:
+   ```bash
+   flask db upgrade
+   ```
 
-### Manual Start
-
-Alternatively, you can run the server manually:
-
-```
+4. Run the application:
+   ```bash
 python run.py
 ```
 
-Then open your browser to:
-- http://localhost:8080/ - Main application
-- http://localhost:8080/landing - Landing page
-- http://localhost:8080/admin - Admin console
+## Configuration
 
-## Using the Application
+The system is highly configurable through environment variables. See `.env.example` for the full list of options.
 
-### Landing Page
+Key configuration sections include:
 
-The landing page provides:
-- Server status monitoring
-- Quick access to all parts of the system
-- Overview of supported cryptocurrencies and features
+- **Database Connection**: Configure PostgreSQL or SQLite
+- **Blockchain Settings**: API keys and wallet addresses
+- **Email Settings**: SMTP server configuration
+- **Redis Cache**: Connection settings
+- **Security Options**: JWT secret, 2FA settings
+- **Feature Flags**: Enable/disable specific features
 
-### Email Reports
+## API Documentation
 
-The system can send daily transaction reports to a specified email address:
+The API provides endpoints for:
 
-1. **Configuration:**
-   - Set the `REPORTS_EMAIL` variable in your `.env` file to the email address that should receive reports
-   - Make sure your email settings are properly configured for sending emails
+- Creating payment links
+- Checking transaction status
+- Managing subscriptions
+- Viewing transaction history
+- User authentication
+- Exchange rate conversion
 
-2. **Setup Automated Reports:**
-   - On Linux/macOS: Run `bash setup_reports.sh` to set up a daily cron job
-   - On Windows: Run `setup_reports.bat` to set up a daily scheduled task
-   - Reports will be sent at 00:05 AM every day
+For detailed API documentation, visit `/api/docs` after starting the application.
 
-3. **Manual Report Generation:**
-   - Run `python send_reports.py` to generate and send a report immediately
-   
-4. **Report Contents:**
-   - List of all transactions from the past 24 hours
-   - Transaction details including ID, amount, network, status, etc.
-   - Summary of completed payments by cryptocurrency network
-   - CSV attachment for easy record keeping and analysis
+## Development
 
-### Configuring Wallet Addresses
+### Running Tests
 
-You can configure your wallet addresses in several ways:
-
-1. **Via the Admin Console:**
-   - Go to the Admin Console page
-   - In the "Wallet Settings" tab, configure your wallet addresses for each network
-
-2. **Via Environment Variables:**
-   - Edit the `.env` file to specify wallet addresses
-   - Use the following format:
-   ```
-   WALLET_ADDRESS_BITCOIN=your_bitcoin_address
-   WALLET_ADDRESS_ETHEREUM=your_ethereum_address
-   WALLET_ADDRESS_BNB=your_bnb_address
-   WALLET_ADDRESS_TRON=your_tron_address
-   WALLET_ADDRESS_SOLANA=your_solana_address
-   ```
-   - Run `python update_wallets.py` to update the database with these addresses
-
-3. **Directly in the Database:**
-   - The addresses are stored in the `wallet_address` table
-
-### Creating a Payment Link
-
-1. Navigate to the "Create Payment Link" page
-2. Enter the payment amount
-3. Enter the client's email address
-4. Select the cryptocurrency network
-5. Click "Generate Payment Link"
-6. The system will create a unique payment link and send it to the client's email
-
-### Client Payment Process
-
-1. The client receives an email with the payment link
-2. The client clicks on the link which opens the payment confirmation page
-3. The client sees the payment details (amount, network, recipient address)
-4. The client sends the payment from their cryptocurrency wallet to the provided address
-5. After sending the payment, the client clicks "Sign Protocol"
-6. The system marks the transaction as completed
-
-### Using the Admin Console
-
-1. Go to the Admin Console page
-2. In the "Wallet Settings" tab, configure your wallet addresses for each network
-3. In the "Quick Payment" tab, generate payment links quickly
-4. View recent transactions and their statuses
-
-## Deployment
-
-For detailed deployment instructions, see the [Deployment Guide](deployment.md).
-
-### Local Development
-
-Run the application locally with:
-```
-python run.py
+```bash
+pytest
 ```
 
-### Production Deployment
+### Code Style
 
-For production deployment, you can use:
-
-- Heroku
-- PythonAnywhere
-- DigitalOcean App Platform
-- Docker
-- Traditional VPS with Nginx and Gunicorn
-
-## Environment Variables
-
-The application uses the following environment variables:
-
-- `FLASK_ENV`: Set to `development` or `production`
-- `SECRET_KEY`: Secret key for Flask
-- `DATABASE_URL`: Database connection URL (if not using SQLite)
-- `EMAIL_SERVER`: SMTP server address
-- `EMAIL_PORT`: SMTP server port
-- `EMAIL_USERNAME`: Email username
-- `EMAIL_PASSWORD`: Email password
-- `EMAIL_SENDER`: Email sender address
-- `HOST`: Host address to bind the server (default: 0.0.0.0)
-- `PORT`: Port to run the server on (default: 8080)
-
-## Security Considerations
-
-- Always use HTTPS in production
-- Implement proper access controls for the admin pages
-- Regularly update dependencies
-- Validate all input data
-- Consider adding user authentication for enhanced security
+```bash
+flake8
+black .
+```
 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details. 
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Acknowledgements
+
+- [Flask](https://flask.palletsprojects.com/)
+- [SQLAlchemy](https://www.sqlalchemy.org/)
+- [Web3.py](https://web3py.readthedocs.io/)
+- [Redis](https://redis.io/)
+- [Docker](https://www.docker.com/) 

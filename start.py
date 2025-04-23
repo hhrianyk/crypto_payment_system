@@ -16,7 +16,7 @@ else:
     
 # Default configuration
 HOST = os.environ.get('HOST', '127.0.0.1')
-PORT = int(os.environ.get('PORT', 8080))
+PORT = int(os.environ.get('PORT', 9000))
 FLASK_ENV = os.environ.get('FLASK_ENV', 'development')
 
 # Get the server URL
